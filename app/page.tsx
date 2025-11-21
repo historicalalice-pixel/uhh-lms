@@ -264,7 +264,7 @@ export default function Home() {
                 <div className="h-4 w-4 rounded-full bg-sky-400 shadow-[0_0_30px_rgba(56,189,248,0.9)]" />
               </div>
 
-              {/* Лейбл періоду по центру зверху секції (над обома картками) */}
+              {/* Лейбл періоду */}
               <div className="pointer-events-none absolute left-1/2 top-3 flex -translate-x-1/2 flex-col items-center text-center text-[0.7rem] uppercase tracking-[0.25em] text-slate-500">
                 <span className="rounded-full border border-slate-800 bg-slate-900/80 px-3 py-1">
                   {row.label}
