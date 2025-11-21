@@ -215,10 +215,12 @@ export default function Home() {
 
           <div className="space-y-28">
             {timeline.map((era) => (
-              <section
-                key={era.id}
-                id={era.id}
-                className="relative min-h-[60vh] scroll-mt-24"
+             <section
+  key={era.id}
+  id={era.id}
+  className="relative min-h-[60vh] scroll-mt-24 pt-10"
+>
+
               >
                 {/* маркер на осі */}
                 <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2">
