@@ -18,42 +18,6 @@ type EraRow = {
   world: EraSide;
 };
 
-type EraGalleryItem = {
-  id: string;
-  title: string;
-  caption: string;
-  image: string;
-};
-
-// ----------------------------
-// Галерея епох — Україна
-// ----------------------------
-const eraGalleryUkraine: EraGalleryItem[] = [
-  { id: "ua-prehistory", title: "Передісторія", caption: "Передісторія", image: "/epochs/ua-prehistory.jpg" },
-  { id: "ua-antiquity", title: "Античність", caption: "Античність", image: "/epochs/ua-antiquity.jpg" },
-  { id: "ua-kyivanrus", title: "Київська Русь", caption: "Київська Русь", image: "/epochs/ua-kyivan-rus.jpg" },
-  { id: "ua-cossacks", title: "Козацька доба", caption: "Козацька доба", image: "/epochs/ua-cossack-age.jpg" },
-  { id: "ua-xix", title: "XIX століття", caption: "XIX століття", image: "/epochs/ua-19c.jpg" },
-  { id: "ua-xx", title: "XX століття", caption: "XX століття", image: "/epochs/ua-20c.jpg" },
-  { id: "ua-independence", title: "Незалежність", caption: "Незалежність", image: "/epochs/ua-independence.jpg" }
-];
-
-// ----------------------------
-// Галерея епох — Світ
-// ----------------------------
-const eraGalleryWorld: EraGalleryItem[] = [
-  { id: "world-prehistory", title: "Первісність", caption: "Передісторія", image: "/epochs/world-prehistory.jpg" },
-  { id: "world-antiquity", title: "Античність", caption: "Античність", image: "/epochs/world-antiquity.jpg" },
-  { id: "world-middleages", title: "Середньовіччя", caption: "Середньовіччя", image: "/epochs/world-middle-ages.jpg" },
-  { id: "world-modern", title: "Новий час", caption: "Новий час", image: "/epochs/world-new-time.jpg" },
-  { id: "world-xix", title: "XIX століття", caption: "XIX століття", image: "/epochs/world-19c.jpg" },
-  { id: "world-xx", title: "XX століття", caption: "XX століття", image: "/epochs/world-20c.jpg" },
-  { id: "world-xxi", title: "XXI століття", caption: "XXI століття", image: "/epochs/world-21c.jpg" }
-];
-
-// ----------------------------
-// Таймлайн — контент Україна + Світ
-// ----------------------------
 const timeline: EraRow[] = [
   {
     id: "prehistory",
@@ -63,163 +27,343 @@ const timeline: EraRow[] = [
       title: "Передісторія та давні землероби",
       period: "до І тис. до н. е.",
       tagline: "Перші люди на території України",
-      summary: "На українських землях з’являються стоянки первісних людей...",
+      summary:
+        "Перші люди, мисливські стоянки, перехід до землеробства і поява перших осілих поселень.",
       facts: [
-        "Стоянки біля Королевого, Мізина, Кирилівки — археологічні памʼятки.",
+        "Стоянки біля Королевого, Мізина, Кирилівки.",
         "Трипільська культура — великі поселення, розписаний посуд.",
-        "Побут, вірування та перехід до землеробства — базові теми шкільної програми."
+        "Перехід до землеробства та скотарства."
       ]
     },
-
     world: {
       title: "Первісне суспільство",
-      period: "каменний вік — бронзовий вік",
+      period: "кам’яний — бронзовий вік",
       tagline: "Походження людини та перші цивілізації",
-      summary: "Учні вивчають еволюцію людини, розвиток знарядь праці...",
+      summary:
+        "Еволюція людини, перші знаряддя праці, неолітична революція та виникнення ранніх цивілізацій.",
       facts: [
-        "Астралопітеки, неандертальці, кроманьйонці — ключові види.",
-        "Неолітична революція — перехід до осілого життя.",
-        "Перші цивілізації Месопотамії та Єгипту."
+        "Австралопітеки, неандертальці, кроманьйонці.",
+        "Неолітична революція — перехід до осілості.",
+        "Перші цивілізації Месопотамії, Єгипту, Індії та Китаю."
+      ]
+    }
+  },
+
+  {
+    id: "antiquity",
+    label: "Античність",
+    schoolPeriod: "5–6 класи",
+    ukraine: {
+      title: "Українські землі в добу античності",
+      period: "І тис. до н.е. — І тис. н.е.",
+      tagline: "Грецькі колонії та скіфський світ",
+      summary:
+        "Північне Причорномор’я входить до сфери впливу грецьких полісів і скіфського царства.",
+      facts: [
+        "Ольвія, Херсонес, Тіра — грецькі колонії.",
+        "Скіфи та сармати — кочові народи степу.",
+        "Розвинена торгівля між степом і античним світом."
+      ]
+    },
+    world: {
+      title: "Античний світ",
+      period: "І тис. до н.е. — V ст. н.е.",
+      tagline: "Греція та Рим",
+      summary:
+        "Формування полісів, класична Греція, піднесення та падіння Римської імперії.",
+      facts: [
+        "Афіни та Спарта — ключові поліси.",
+        "Римська республіка → Римська імперія.",
+        "Велике переселення народів і падіння Риму."
+      ]
+    }
+  },
+
+  {
+    id: "kyiv_rus",
+    label: "Київська Русь",
+    schoolPeriod: "6–7 класи",
+    ukraine: {
+      title: "Київська Русь",
+      period: "ІХ — ХІІІ ст.",
+      tagline: "Перші державні утворення",
+      summary:
+        "Формування ранньої держави, хрещення Русі та розвиток культури.",
+      facts: [
+        "Київ — політичний центр Русі.",
+        "Правління Олега, Ольги, Володимира, Ярослава.",
+        "988 р. — хрещення Русі."
+      ]
+    },
+    world: {
+      title: "Середньовічна Європа",
+      period: "V — ХІІІ ст.",
+      tagline: "Феодалізм і християнство",
+      summary:
+        "Формування держав, роль церкви, хрестові походи.",
+      facts: [
+        "Франкська імперія.",
+        "Феодальна ієрархія.",
+        "Хрестові походи."
+      ]
+    }
+  },
+
+  {
+    id: "lithuania_poland",
+    label: "Литовсько-польська доба",
+    schoolPeriod: "7 клас",
+    ukraine: {
+      title: "Українські землі у складі Литви та Польщі",
+      period: "XIV — XVI ст.",
+      tagline: "Зміна політичних центрів",
+      summary:
+        "Українські землі у складі Великого князівства Литовського та Королівства Польського.",
+      facts: [
+        "Галицько-Волинська держава.",
+        "Закріпачення селян.",
+        "Посилення шляхти."
+      ]
+    },
+    world: {
+      title: "Пізнє Середньовіччя",
+      period: "XIV — XV ст.",
+      tagline: "Міста та Ренесанс",
+      summary:
+        "Зростання міст, розвиток ремесел, гуманізм та початок Ренесансу.",
+      facts: [
+        "Чорна смерть.",
+        "Флоренція, Венеція — центри культури.",
+        "Леонардо да Вінчі, Мікеланджело."
+      ]
+    }
+  },
+
+  {
+    id: "cossack_age",
+    label: "Козацька доба",
+    schoolPeriod: "8 клас",
+    ukraine: {
+      title: "Козацька держава",
+      period: "XVI — XVIII ст.",
+      tagline: "Боротьба за автономію",
+      summary:
+        "Формування козацтва, Запорозька Січ, визвольна війна та Гетьманщина.",
+      facts: [
+        "Запорозька Січ.",
+        "1648–1657 — повстання Хмельницького.",
+        "Період «Руїни»."
+      ]
+    },
+    world: {
+      title: "Новий час",
+      period: "XVI — XVIII ст.",
+      tagline: "Відкриття і монархії",
+      summary:
+        "Колоніальні імперії, абсолютизм, наукова революція.",
+      facts: [
+        "Великі географічні відкриття.",
+        "Колоніальні імперії.",
+        "Ідеї Просвітництва."
+      ]
+    }
+  },
+
+  {
+    id: "xix_century",
+    label: "XIX століття",
+    schoolPeriod: "8–9 класи",
+    ukraine: {
+      title: "Українські землі у XIX ст.",
+      period: "XVIII — ХХ ст.",
+      tagline: "Національне відродження",
+      summary:
+        "Українські землі у складі імперій, формування нації.",
+      facts: [
+        "Тарас Шевченко.",
+        "Промисловість і міста.",
+        "Перші політичні організації."
+      ]
+    },
+    world: {
+      title: "XIX століття",
+      period: "1815 — 1914",
+      tagline: "Індустріалізація",
+      summary:
+        "Промислові революції, національні рухи.",
+      facts: [
+        "Об'єднання Італії та Німеччини.",
+        "Колоніалізм в Африці.",
+        "Розвиток фабрик та залізниць."
+      ]
+    }
+  },
+
+  {
+    id: "early_xx",
+    label: "Початок XX ст.",
+    schoolPeriod: "9 клас",
+    ukraine: {
+      title: "Україна у Першій світовій",
+      period: "1914 — 1921",
+      tagline: "Визвольні змагання",
+      summary:
+        "Українці у війні, революції та боротьба за УНР.",
+      facts: [
+        "Участь у військах імперій.",
+        "1917–1921 — УНР, ЗУНР.",
+        "Поділ українських земель."
+      ]
+    },
+    world: {
+      title: "Перша світова війна",
+      period: "1914 — 1939",
+      tagline: "Крах імперій",
+      summary:
+        "Перша світова, міжвоєння, диктатури.",
+      facts: [
+        "Розпад імперій.",
+        "Версальська система.",
+        "Фашизм і нацизм."
+      ]
+    }
+  },
+
+  {
+    id: "ww2",
+    label: "Друга світова",
+    schoolPeriod: "9 клас",
+    ukraine: {
+      title: "Україна в Другій світовій",
+      period: "1939 — 1945",
+      tagline: "Війна на українських землях",
+      summary:
+        "Фронти, окупація, Голокост, визволення.",
+      facts: [
+        "Бої за Київ, Харків, Одесу.",
+        "Партизанський рух.",
+        "УПА."
+      ]
+    },
+    world: {
+      title: "Друга світова війна",
+      period: "1939 — 1945",
+      tagline: "Глобальний конфлікт",
+      summary:
+        "Голокост, бомби, ООН.",
+      facts: [
+        "Напад на Польщу.",
+        "Геноцид.",
+        "Ялтинська конференція."
+      ]
+    }
+  },
+
+  {
+    id: "late_xx",
+    label: "Друга половина XX ст.",
+    schoolPeriod: "10 клас",
+    ukraine: {
+      title: "Україна в СРСР",
+      period: "1945 — 1991",
+      tagline: "Відбудова і застій",
+      summary:
+        "Повоєнний розвиток, шістдесятники, репресії, Чорнобиль.",
+      facts: [
+        "Русифікація.",
+        "Дисиденти.",
+        "1986 — аварія на ЧАЕС."
+      ]
+    },
+    world: {
+      title: "Холодна війна",
+      period: "1945 — 1991",
+      tagline: "Суперництво США–СРСР",
+      summary:
+        "Гонка озброєнь, локальні війни, деколонізація.",
+      facts: [
+        "НАТО і ОВД.",
+        "Корея, В’єтнам.",
+        "Падіння Берлінського муру."
+      ]
+    }
+  },
+
+  {
+    id: "independence",
+    label: "Незалежність",
+    schoolPeriod: "11 клас",
+    ukraine: {
+      title: "Незалежна Україна",
+      period: "з 1991",
+      tagline: "Формування державності",
+      summary:
+        "Утворення держави, революції, війна.",
+      facts: [
+        "24 серпня 1991 — незалежність.",
+        "2004 — Помаранчева революція.",
+        "2014–2022 — російсько-українська війна."
+      ]
+    },
+    world: {
+      title: "Світ після 1991",
+      period: "1991 — сьогодні",
+      tagline: "Глобалізація та нові конфлікти",
+      summary:
+        "Мультиполярний світ, цифровізація, тероризм.",
+      facts: [
+        "ЄС та НАТО.",
+        "Інтернет і соцмережі.",
+        "Кліматична криза."
       ]
     }
   }
 ];
 
-// ----------------------------
-// Компонент картки з галереї
-// ----------------------------
-function EraGalleryCard({ item }: { item: EraGalleryItem }) {
+export default function Page() {
   return (
-    <div className="flex w-[120px] flex-col items-center gap-2">
-      <div className="flex h-[96px] w-full items-center justify-center overflow-hidden rounded-3xl bg-white shadow-[0_12px_35px_rgba(15,23,42,0.13)]">
-        <img
-          src={item.image}
-          alt={item.title}
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-      </div>
-      <div className="text-center text-[11px] text-slate-600">{item.caption}</div>
-    </div>
-  );
-}
+    <main className="p-10 max-w-5xl mx-auto text-gray-900">
+      <h1 className="text-center text-4xl font-bold mb-10">
+        Таймлайн історії: Україна & Світ
+      </h1>
 
-// ----------------------------
-// Компонент секції з таймлайном
-// ----------------------------
-function EraCard({ row }: { row: EraRow }) {
-  return (
-    <article className="relative mx-auto mt-20 max-w-6xl rounded-3xl bg-white/70 p-10 shadow-[0_18px_70px_rgba(15,23,42,0.12)] backdrop-blur">
-      <div className="grid grid-cols-1 gap-10 border-l border-r border-slate-300 md:grid-cols-2">
-        {/* Україна */}
-        <div className="pr-6">
-          <div className="text-xs font-semibold tracking-[0.22em] text-slate-400 uppercase">
-            Історія України
-          </div>
-          <div className="text-xs text-slate-400">{row.ukraine.period}</div>
-          <h3 className="mt-3 text-xl font-bold text-slate-800">{row.ukraine.title}</h3>
-          <p className="mt-1 text-sm text-blue-600">{row.ukraine.tagline}</p>
-          <p className="mt-3 text-sm text-slate-600">{row.ukraine.summary}</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {row.ukraine.facts.map((f, i) => (
-              <li key={i} className="flex gap-2">
-                <span>•</span> {f}
-              </li>
-            ))}
-          </ul>
-        </div>
+      {timeline.map((era) => (
+        <section
+          key={era.id}
+          className="bg-white p-6 mb-12 shadow rounded-xl border"
+        >
+          <h2 className="text-xl font-semibold text-blue-700 mb-1">{era.label}</h2>
+          <p className="text-sm text-gray-400 mb-4">{era.schoolPeriod}</p>
 
-        {/* Світ */}
-        <div className="pl-6">
-          <div className="text-xs font-semibold tracking-[0.22em] text-slate-400 uppercase">
-            Всесвітня історія
-          </div>
-          <div className="text-xs text-slate-400">{row.world.period}</div>
-          <h3 className="mt-3 text-xl font-bold text-slate-800">{row.world.title}</h3>
-          <p className="mt-1 text-sm text-purple-600">{row.world.tagline}</p>
-          <p className="mt-3 text-sm text-slate-600">{row.world.summary}</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {row.world.facts.map((f, i) => (
-              <li key={i} className="flex gap-2">
-                <span>•</span> {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="absolute left-1/2 top-0 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-400 shadow-[0_0_18px_rgba(30,60,200,0.6)]"></div>
-    </article>
-  );
-}
-
-// ----------------------------
-// Головна сторінка
-// ----------------------------
-export default function HomePage() {
-  return (
-    <main className="min-h-screen bg-[#eef3f8] text-slate-900">
-      
-      {/* NAVBAR */}
-      <header className="fixed left-0 top-0 z-50 flex w-full items-center justify-between bg-white/40 px-6 py-4 backdrop-blur shadow">
-        <div className="text-lg font-bold cursor-pointer">
-          UHH
-        </div>
-        <div className="text-sm text-slate-700 cursor-pointer">
-          Меню ▼
-        </div>
-      </header>
-
-      <div className="pt-24 pb-10">
-        
-        {/* Hero title */}
-        <h1 className="text-center text-3xl font-extrabold tracking-wide text-slate-800">
-          Таймлайн історії України & Світу
-        </h1>
-        <p className="mt-2 text-center text-sm text-slate-500">
-          Прокручуй вниз: зліва — історія України, справа — всесвітня історія.
-        </p>
-
-        {/* Gallery section */}
-        <section className="mx-auto mb-20 mt-10 max-w-5xl rounded-3xl bg-white/70 p-8 shadow-[0_18px_60px_rgba(15,23,42,0.15)] backdrop-blur">
-          <h2 className="text-center text-sm font-semibold tracking-[0.28em] text-slate-500 uppercase">
-            Візуальна стрічка епох
-          </h2>
-
-          {/* Україна */}
-          <div className="mt-6">
-            <div className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
-              Історія України
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Україна */}
+            <div>
+              <h3 className="text-lg font-bold mb-1">Історія України</h3>
+              <p className="text-sm text-blue-500 mb-2">{era.ukraine.period}</p>
+              <h4 className="font-semibold mb-2">{era.ukraine.title}</h4>
+              <p className="mb-2">{era.ukraine.tagline}</p>
+              <ul className="list-disc ml-5 text-sm">
+                {era.ukraine.facts.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
             </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {eraGalleryUkraine.map((item) => (
-                <EraGalleryCard key={item.id} item={item} />
-              ))}
-            </div>
-          </div>
 
-          {/* Світ */}
-          <div className="mt-10">
-            <div className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
-              Всесвітня історія
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {eraGalleryWorld.map((item) => (
-                <EraGalleryCard key={item.id} item={item} />
-              ))}
+            {/* Світ */}
+            <div>
+              <h3 className="text-lg font-bold mb-1">Всесвітня історія</h3>
+              <p className="text-sm text-purple-500 mb-2">{era.world.period}</p>
+              <h4 className="font-semibold mb-2">{era.world.title}</h4>
+              <p className="mb-2">{era.world.tagline}</p>
+              <ul className="list-disc ml-5 text-sm">
+                {era.world.facts.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
-
-        {/* Timeline */}
-        {timeline.map((row) => (
-          <EraCard key={row.id} row={row} />
-        ))}
-
-        <div className="mt-20 pb-20 text-center text-xs text-slate-400">
-          Ukrainian History Hub © 2025
-        </div>
-      </div>
+      ))}
     </main>
   );
 }
