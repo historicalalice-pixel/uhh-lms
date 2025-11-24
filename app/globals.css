@@ -24,3 +24,145 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* === Hero wave & underwater timeline === */
+
+.hero-container {
+  position: relative;
+}
+
+/* Хвиля */
+.wave-wrapper {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  pointer-events: none;
+}
+
+.wave-svg {
+  display: block;
+  width: 100%;
+  height: 130px;
+}
+
+.wave-path {
+  fill: #0ea5e9;
+  opacity: 0.95;
+  transform-origin: center;
+  animation: waveFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes waveFloat {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(-60px) translateY(8px);
+  }
+}
+
+/* Підводний фон */
+.ocean-section {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 6rem;
+  background: radial-gradient(
+      120% 200% at 50% -10%,
+      #e0f2ff 0%,
+      #38bdf8 35%,
+      #0f172a 100%
+    );
+}
+
+.ocean-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      140% 220% at 50% -20%,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(56, 189, 248, 0.2) 35%,
+      rgba(15, 23, 42, 0.9) 80%
+    );
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.ocean-particles {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      circle at 10% 20%,
+      rgba(255, 255, 255, 0.2) 0,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(191, 219, 254, 0.18) 0,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 30% 80%,
+      rgba(59, 130, 246, 0.25) 0,
+      transparent 50%
+    );
+  opacity: 0.7;
+  animation: oceanDrift 32s linear infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes oceanDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-60px, 40px, 0);
+  }
+}
+
+/* Вертикальна лінія таймлайну + маркер */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(191, 219, 254, 0),
+    rgba(129, 212, 250, 0.9),
+    rgba(15, 23, 42, 0.4)
+  );
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, #e0f2fe 0, #0ea5e9 55%, #0369a1 100%);
+  box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3);
+}
+
+/* Тіні для карток */
+.shadow-soft {
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.shadow-deep {
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.35);
+}
+
+/* Дрібні адаптивні штуки */
+@media (max-width: 768px) {
+  .wave-svg {
+    height: 80px;
+  }
+
+  .timeline-marker {
+    display: none;
+  }
+}
